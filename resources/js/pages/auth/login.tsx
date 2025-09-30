@@ -1,4 +1,5 @@
 import AuthenticatedSessionController from '@/actions/App/Http/Controllers/Auth/AuthenticatedSessionController';
+import googleButton from '@/assets/Web (mobile + desktop)/svg/dark/web_dark_sq_ctn.svg';
 import InputError from '@/components/input-error';
 import TextLink from '@/components/text-link';
 import { Button } from '@/components/ui/button';
@@ -10,7 +11,6 @@ import { register } from '@/routes';
 import { request } from '@/routes/password';
 import { Form, Head } from '@inertiajs/react';
 import { LoaderCircle } from 'lucide-react';
-
 interface LoginProps {
     status?: string;
     canResetPassword: boolean;
@@ -92,6 +92,26 @@ export default function Login({ status, canResetPassword }: LoginProps) {
                                     <LoaderCircle className="h-4 w-4 animate-spin" />
                                 )}
                                 Log in
+                            </Button>
+                            <Button
+                                asChild
+                                className="w-full"
+                                variant="outline"
+                                disabled={processing}
+                                data-test="login-with-google-button"
+                            >
+                                <a
+                                    href="/auth/google"
+                                    className="flex items-center justify-center "
+                                >
+                                    <img
+                                        src={googleButton}
+                                        alt="Google"
+                                        className="h-20 w-150 object-contain "
+
+                                    />
+
+                                </a>
                             </Button>
                         </div>
 
